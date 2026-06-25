@@ -1,9 +1,19 @@
 // this component is used to display the list of projects in the portfolio section of the website
+"use client";
 
 import Image from "next/image";
 import { projects } from "@/data/projects";
+import { useState } from "react";
+
+const filters = ["All", "Web", "Data & ML", "Mobile", "Systems"];
 
 export default function Projects() {
+    const [activeFilter, setActiveFilter] = useState("All");
+
+    const visibleProjects = activeFilter === "All"
+        ? projects
+        : projects.filter((project) => project.category === activeFilter);
+
     return (
         <section className="mx-auto max-w-5xl px-6 py-24">
             <p className="font-mon text-sm uppercase tracking-widest text-accent">
@@ -12,9 +22,25 @@ export default function Projects() {
             <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
                 Things I've built
             </h2>
+            {/* Creating the filter buttons */}
+            <div className="mt-8 flex flex-wrap gap-2 font-mon text-sm">
+                {filters.map((filter) => (
+                    < button
+                    key={filter}
+                    onClick={() => setActiveFilter(filter)}
+                    className={`rounded-md px-3 py-1.5 transition ${
+                        activeFilter === filter
+                        ? "bg-accent text-white"
+                        : "border border-foreground/15 text-muted hover:text-foreground"
+                    }`}
+                    >
+                        {filter}
+                    </button>
+                ))}
+            </div>
             {/* Creating the grid where the projects are going to be displayed */}
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                {projects.map((project) => (
+                {visibleProjects.map((project) => (
                     <article
                     key={project.title}
                     className="group relative flex flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
