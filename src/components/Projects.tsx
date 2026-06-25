@@ -1,5 +1,6 @@
 // this component is used to display the list of projects in the portfolio section of the website
 
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 export default function Projects() {
@@ -16,47 +17,69 @@ export default function Projects() {
                 {projects.map((project) => (
                     <article
                     key={project.title}
-                    className="flex flex-col rounded-xl border border-foreground/10 p-6 transition hover:border-foreground/25"
+                    className="group relative flex flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
                     >
+                        {/* Displaying the project image or category if no image is provided */}
+                        <div className="relative aspect-video overflow-hidden bg-foreground/5">
+                            {project.image ? (
+                                <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                sizes="(max-with: 640px) 100vw, 50vw"
+                                className="object-cover transition duration-500 group-hover: scale-105"
+                            />
+                            ) : (
+                                <div className="flex h-full items-center justify-center">
+                                    <span className="font-mono text-xs uppercase tracking-widest text-muted">
+                                        {project.category}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+
                         {/* Displaying the project title */}
-                        <h3 className="text-lg font-semibold">{project.title}</h3>
-                        {/* Displaying the project description */}
-                        <p className="mt-2 flex-1 text-sm text-muted">{project.description}</p>
-                        {/* Displaying the project tech stack */}
-                        <ul className="mt-4 flex flex-wrap gap-2">
-                            {project.tech.map((tech) => (
-                                <li 
-                                key={tech}
-                                className="rounded-md bg-foreground/5 px-2 py-1 font-mono text-xs text-muted"
-                                >
-                                    {tech}
-                                </li>
-                                ))}
-                        </ul>
-                        {/* Displaying the project links (GitHub and Demo) */}
-                        <div className="mt-5 flex gap-4 font-mono text-sm">
-                            <a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent hover:underline"
-                        >
-                            Github →
-                        </a>
-                        {project.demo && (
-                            <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-accent hover:underline"
-                            >
-                                Demo →
-                            </a>
-                        )}
-                    </div>
-                </article>
-            ))}
-        </div>
-    </section>
+                        <div className="flex flex-1 flex-col p-6">
+                            <h3 className="text-lg font-semibold transition group-hover:text-accent">
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0">
+                                    {project.title}
+                                </a>
+                            </h3>
+
+                            {/* Displaying the project description */}
+                            <p className="mt-2 flex-1 text-sm text-muted">{project.description}</p>
+
+                            {/* Displaying the project tech stack */}
+                            <ul className="mt-4 flex flex-wrap gap-2">
+                                {project.tech.map((tech) => (
+                                    <li 
+                                    key={tech}
+                                    className="rounded-md bg-foreground/5 px-2 py-1 font-mono text-xs text-muted"
+                                    >
+                                        {tech}
+                                    </li>
+                                    ))}
+                            </ul>
+                            {/* Displaying the project links (GitHub and Demo) */}
+                            <div className="mt-5 flex items-center gap-4 font-mono text-sm">
+                                <span className="text-muted transition group-hover:text-accent">
+                                    View code →
+                                </span>
+                                {project.demo && (
+                                    <a
+                                    href={project.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="relative z-10 text-accent hover:underline"
+                                    >
+                                        Demo →
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </section>
     );
 }

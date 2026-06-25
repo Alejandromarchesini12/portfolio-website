@@ -7,6 +7,7 @@ export type Project = {
     tech: string[]; 
     github: string;
     demo?: string; // STRING because it can be a link to a video, webssite, etc. 
+    image?: string; // e.g. "/images/project-image.png" (optional)
 }; 
 
 // ------------- ADD HERE ALL THE PROJECTS DATA INTO VARIABLES ---------------
