@@ -16,10 +16,10 @@ export default function Projects() {
 
     return (
         <section className="mx-auto max-w-5xl px-6 py-24">
-            <p className="font-mon text-sm uppercase tracking-widest text-accent">
+            <p className="font-mon text-md uppercase tracking-widest text-accent">
                 Projects
             </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-2 text-md font-bold tracking-tight sm:text-4xl">
                 Things I've built
             </h2>
             {/* Creating the filter buttons */}
@@ -45,6 +45,16 @@ export default function Projects() {
                     key={project.title}
                     className="group relative flex flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
                     >
+                        {project.demo && (
+                            <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute right-3 top-3 z-10 rounded-md border border-foreground/15 bg-background/80 px-3 py-1.5 font-mono text-xs backdrop-blur transition hover:border-accent hover:bg-accent hover:text-white"
+                            >
+                                Demo →
+                            </a>
+                        )}
                         {/* Displaying the project image or category if no image is provided */}
                         <div className="relative aspect-video overflow-hidden bg-foreground/5">
                             {project.image ? (
@@ -87,20 +97,10 @@ export default function Projects() {
                                     ))}
                             </ul>
                             {/* Displaying the project links (GitHub and Demo) */}
-                            <div className="mt-5 flex items-center gap-4 font-mono text-sm">
+                            <div className="mt-5 font-mono text-sm">
                                 <span className="text-muted transition group-hover:text-accent">
                                     View code →
                                 </span>
-                                {project.demo && (
-                                    <a
-                                    href={project.demo}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="relative z-10 text-accent hover:underline"
-                                    >
-                                        Demo →
-                                    </a>
-                                )}
                             </div>
                         </div>
                     </article>
