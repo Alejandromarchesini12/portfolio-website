@@ -15,7 +15,7 @@ export default function Projects() {
         : projects.filter((project) => project.category === activeFilter);
 
     return (
-        <section className="mx-auto max-w-5xl px-6 py-24">
+        <section id="projects" className="mx-auto max-w-5xl px-6 py-24">
             <p className="font-mon text-md uppercase tracking-widest text-accent">
                 Projects
             </p>

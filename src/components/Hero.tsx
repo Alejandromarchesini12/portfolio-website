@@ -21,7 +21,7 @@ export default function Hero() {
     const current = tracks[track];
 
     return (
-        <section className="mx-auto max-w-3xl px-6 py-32 text-center">
+        <section id="home" className="mx-auto max-w-3xl px-6 py-32 text-center">
             <div className="inline-flex rounded-lg border border-foreground/15 p-1 font-mono text-sm">
                 <button
                 onClick={() => setTrack("se")}
