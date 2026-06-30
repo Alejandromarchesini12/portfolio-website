@@ -60,10 +60,14 @@ export default function Projects() {
                             {project.image ? (
                                 <Image
                                 src={project.image}
-                                alt={project.title}
+                                alt={`${project.title} screenshot`}
                                 fill
-                                sizes="(max-with: 640px) 100vw, 50vw"
-                                className="object-cover transition duration-500 group-hover: scale-105"
+                                sizes="(max-width: 640px) 100vw, 50vw"
+                                className={`transition duration-500 group-hover:scale-105 ${
+                                    project.imageFit === "contain"
+                                        ? "object-contain p-3"
+                                        : "object-cover"
+                                }`}
                             />
                             ) : (
                                 <div className="flex h-full items-center justify-center">
@@ -90,7 +94,7 @@ export default function Projects() {
                                 {project.tech.map((tech) => (
                                     <li 
                                     key={tech}
-                                    className="rounded-full bg-foreground/5 px-2.5 py-1 font-mono text-xs text-muted"
+                                    className="rounded-full border border-transparent bg-foreground/5 px-2.5 py-1 font-mono text-xs text-muted transition-colors duration-300 group-hover:border-accent/30 group-hover:bg-accent/10 group-hover:text-foreground"
                                     >
                                         {tech}
                                     </li>
