@@ -14,7 +14,7 @@ export default function Contact() {
             Let's talk
         </h2>
         <p className="mt-6 mx-auto max-w-xl text-lg text-muted">
-            I'm open to software engineering and data science roles, and happy to chat about either. The fastest way to reach me is by email.
+            I'm open to software engineering and data science roles — and happy to talk about either. The fastest way to reach me is email.
         </p>
 
         {/* Email actions: prominent copyable address, Copy button, mailto fallback */}

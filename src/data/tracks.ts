@@ -17,7 +17,7 @@ export const tracks: Record<
     ds: {
         label: "Data Scientist / Data Analyst",
         tagline:
-            "I turn data into decisions | ML pipelines, feature engineering, and analysis teams can act on.",
+            "I turn data into decisions — ML pipelines, feature engineering, and analysis that teams can act on.",
         resume: "/Alejandro-Marchesini-Resume-DS.pdf",
     },
 };
