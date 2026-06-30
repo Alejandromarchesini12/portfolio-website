@@ -1,6 +1,9 @@
 // Contact section: direct links instead of a form — nothing to break,
 // and recruiters can reach out in one click.
 
+import { Mail } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "./icons";
+
 export default function Contact() {
     return (
     <section id="contact" className="mx-auto max-w-3xl px-6 py-24 text-center">
@@ -16,27 +19,30 @@ export default function Contact() {
 
         {/* Primary action: email. mailto: opens the visitor's email app. */}
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a 
+        <a
             href="mailto:alejandro.marchesini12@gmail.com"
-            className="rounded-lg bg-accent px-5 py-2.5 font-medium text-white transition hover:opacity-90"
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
+            <Mail className="h-4 w-4" aria-hidden="true" />
             Email me
         </a>
         <a
             href="https://www.linkedin.com/in/alejandro-marchesini/"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-foreground/15 px-5 py-2.5 font-medium transition hover:border-foreground/40"
+            aria-label="LinkedIn profile (opens in a new tab)"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground transition hover:border-foreground/40 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-            LinkedIn
+            <LinkedinIcon className="h-5 w-5" />
         </a>
         <a
             href="https://github.com/Alejandromarchesini12"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-foreground/15 px-5 py-2.5 font-medium transition hover:border-foreground/40"
+            aria-label="GitHub profile (opens in a new tab)"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 text-foreground transition hover:border-foreground/40 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         >
-            GitHub
+            <GithubIcon className="h-5 w-5" />
         </a>
         </div>
 
