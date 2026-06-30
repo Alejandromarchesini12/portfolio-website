@@ -49,6 +49,9 @@ export default function About() {
                     3.97 GPA
                 </li>
                 <li className="rounded-full border border-foreground/15 px-4 py-1.5 transition-colors hover:border-accent/40 hover:text-foreground">
+                    Bilingual · EN/ES
+                </li>
+                <li className="rounded-full border border-foreground/15 px-4 py-1.5 transition-colors hover:border-accent/40 hover:text-foreground">
                     Elite 18 Award
                 </li>
                 <li className="rounded-full border border-foreground/15 px-4 py-1.5 transition-colors hover:border-accent/40 hover:text-foreground">
