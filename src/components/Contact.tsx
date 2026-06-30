@@ -1,8 +1,8 @@
 // Contact section: direct links instead of a form — nothing to break,
 // and recruiters can reach out in one click.
 
-import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
+import CopyEmail from "./CopyEmail";
 
 export default function Contact() {
     return (
@@ -17,15 +17,11 @@ export default function Contact() {
             I'm open to software engineering and data science roles, and happy to chat about either. The fastest way to reach me is by email.
         </p>
 
-        {/* Primary action: email. mailto: opens the visitor's email app. */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a
-            href="mailto:alejandro.marchesini12@gmail.com"
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-        >
-            <Mail className="h-4 w-4" aria-hidden="true" />
-            Email me
-        </a>
+        {/* Email actions: prominent copyable address, Copy button, mailto fallback */}
+        <CopyEmail />
+
+        {/* Other ways to connect */}
+        <div className="mt-6 flex items-center justify-center gap-3">
         <a
             href="https://www.linkedin.com/in/alejandro-marchesini/"
             target="_blank"
@@ -45,11 +41,6 @@ export default function Contact() {
             <GithubIcon className="h-5 w-5" />
         </a>
         </div>
-
-        {/* A plain-text email too, so it's copyable even without an email app set up */}
-        <p className="mt-6 font-mono text-sm text-muted">
-        alejandro.marchesini12@gmail.com
-        </p>
     </section>
     );
 }
