@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Nav from "@/components/Nav"
+import { TrackProvider } from "@/components/TrackProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,8 +30,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth scroll-pt-20 antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Nav />
-        {children}
+        <TrackProvider>
+          <Nav />
+          {children}
+        </TrackProvider>
       </body>
     </html>
   );

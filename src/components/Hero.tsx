@@ -1,25 +1,13 @@
 // This Component is to Show the Hero section of the webiste with: name, title, resume (download or view), GitHub and LinkedIn links
 "use client";
 
-import { useState } from "react";
 import { FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./icons";
-
-const tracks = {
-    se: {
-        label: "Software Engineer",
-        tagline: "I build full-stack web and mobile apps with React, TypeScript, and a focus on clean, accessible UI.",
-        resume: "/Alejandro-Marchesini-Resume-SE.pdf",
-    },
-    ds: {
-        label: "Data Scientist / Data Analyst",
-        tagline: "I turn data into decisions | ML pipelines, feature engineering, and analysis teams can act on.",
-        resume: "/Alejandro-Marchesini-Resume-DS.pdf",
-    },
-};
+import { tracks } from "@/data/tracks";
+import { useTrack } from "./TrackProvider";
 
 export default function Hero() {
-    const [track, setTrack] = useState<"se" | "ds">("se");
+    const { track, setTrack } = useTrack();
     const current = tracks[track];
 
     return (

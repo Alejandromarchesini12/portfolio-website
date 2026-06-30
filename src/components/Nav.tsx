@@ -1,96 +1,133 @@
 // This is file will contain the navigation bar the top of the portfolio
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { FileText, Menu, X } from "lucide-react";
+import { tracks } from "@/data/tracks";
+import { useTrack } from "./TrackProvider";
 
 const links = [
-    { label: "About", href:"#about"}, 
-    { label: "Projects", href:"#projects"}, 
-    { label: "Skills", href:"#skills"}, 
-    { label: "Experience", href:"#experience"}, 
-    { label: "Contact", href:"#contact"}, 
-]
+    { label: "About", href: "#about" },
+    { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" },
+];
 
 export default function Nav() {
     // Tracks whether the mobile dropdown menu is open. Starts closed.
-    const [open, setOpen] = useState(false); 
+    const [open, setOpen] = useState(false);
+    // Tracks which section is currently in view, for the scroll-spy highlight.
+    const [active, setActive] = useState("");
+    // Resume button follows whichever track the Hero toggle has selected.
+    const { track } = useTrack();
+    const resume = tracks[track].resume;
+
+    // Scroll-spy: highlight the nav link for the section crossing mid-viewport.
+    useEffect(() => {
+        const sections = links
+            .map((link) => document.getElementById(link.href.slice(1)))
+            .filter((el): el is HTMLElement => el !== null);
+        if (sections.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) setActive(entry.target.id);
+                });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
 
     return (
         /* Look for the nav bar here */
         <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur">
             <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
                 {/* Logo / initials, links back to the top of the page */}
-                <a href="#home" className="font-mono text-sm font-semibold tracking-tight">
-                    AM
+                <a
+                    href="#home"
+                    aria-label="Alejandro Marchesini — back to top"
+                    className="whitespace-nowrap rounded-sm text-sm font-semibold tracking-tight transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                    <span className="font-normal text-muted">Alejandro</span> Marchesini
                 </a>
-            {/* Loop to display all the options for the navigation bar */}
-            <div className="hidden items-center gap-6 sm:flex">
-                {links.map((link) => (
-                    <a 
-                        key={link.href}
-                        href={link.href}
-                        className="text-sm text-muted transition hover:text-foreground"
+                {/* Loop to display all the options for the navigation bar */}
+                <div className="hidden items-center gap-7 sm:flex">
+                    {links.map((link) => {
+                        const isActive = active === link.href.slice(1);
+                        return (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                aria-current={isActive ? "true" : undefined}
+                                className={`relative text-sm transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:rounded-full after:bg-accent after:transition-transform after:duration-300 hover:text-foreground hover:after:scale-x-100 focus-visible:outline-none focus-visible:text-foreground ${
+                                    isActive
+                                        ? "text-foreground after:scale-x-100"
+                                        : "text-muted after:scale-x-0"
+                                }`}
+                            >
+                                {link.label}
+                            </a>
+                        );
+                    })}
+                    {/* Always-visible resume button, tied to the Hero's track toggle */}
+                    <a
+                        href={resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
-                        {link.label}
+                        <FileText className="h-4 w-4" aria-hidden="true" />
+                        Resume
                     </a>
-                ))}
-             {/* Always-visible resume button (currently points to the SE resume) */}
-            <a 
-                href="/Alejandro-Marchesini-Resume-SE.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
-            >
-                Resume
-            </a>
-            </div>
+                </div>
 
-            {/* HAMBURGER button: shown only on phones (sm:hidden). Flips the menu open/closed. The icon swaps between an X and bars. */}
-            <button
-                onClick={() => setOpen((prev) => !prev)}
-                className="text-foreground sm:hidden"
-                aria-label="Toggle menu"
-                aria-expanded={open}
-            >
-                {open ? (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                ) : (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <line x1="3" y1="6" x2="21" y2="6" />
-                        <line x1="3" y1="12" x2="21" y2="12" />
-                        <line x1="3" y1="18" x2="21" y2="18" />
-                    </svg>
-                )}
-            </button>
+                {/* HAMBURGER button: shown only on phones (sm:hidden). Flips the menu open/closed. */}
+                <button
+                    onClick={() => setOpen((prev) => !prev)}
+                    className="rounded-md p-1 text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:hidden"
+                    aria-label="Toggle menu"
+                    aria-expanded={open}
+                >
+                    {open ? (
+                        <X className="h-6 w-6" aria-hidden="true" />
+                    ) : (
+                        <Menu className="h-6 w-6" aria-hidden="true" />
+                    )}
+                </button>
             </nav>
             {/* MOBILE dropdown: only rendered when open is true, only visible on phones. Tapping any link closes the menu via setOpen(false). */}
-            { open && (
+            {open && (
                 <div className="border-t border-foreground/10 sm:hidden">
                     <div className="flex flex-col gap-1 px-6 py-4">
                         {links.map((link) => (
-                            <a 
+                            <a
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setOpen(false)}
-                                className="py-2 text-sm text-muted transition hover:text-foreground">
-                                    {link.label}
-                                </a>
+                                className="py-2 text-sm text-muted transition hover:text-foreground"
+                            >
+                                {link.label}
+                            </a>
                         ))}
-                        {/* Adding the Resume options for the viewers - Data Science*/}
-                        <a  
-                            href="/Alejandro-Marchesini-Resume-SE.pdf"
+                        {/* Resume option follows the selected track too */}
+                        <a
+                            href={resume}
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => setOpen(false)}
-                            className="mt-2 rounded-lg bg-accent px-4 py-2 text-center text-sm font-medium text-white transition hover:opacity-90">
-                                Resume
-                            </a>
-                    </div> 
+                            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-2 text-center text-sm font-medium text-white transition hover:opacity-90"
+                        >
+                            <FileText className="h-4 w-4" aria-hidden="true" />
+                            Resume
+                        </a>
+                    </div>
                 </div>
             )}
         </header>
-    )
+    );
 }
