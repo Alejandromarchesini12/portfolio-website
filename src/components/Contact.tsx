@@ -6,7 +6,7 @@ import { GithubIcon, LinkedinIcon } from "./icons";
 
 export default function Contact() {
     return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-24 text-center">
+    <section id="contact" className="mx-auto max-w-3xl px-6 py-20 text-center">
         <p className="font-mono text-sm uppercase tracking-widest text-accent">
             Contact
         </p>
