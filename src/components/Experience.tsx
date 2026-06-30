@@ -35,26 +35,31 @@ const experience = [
 export default function Experience() {
     return(
         <section id="experience" className="mx-auto max-w-3xl px-6 py-12 2xl:py-20">
-            <p className="font-mon text-md uppercase tracking-widest text-accent">
+            <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 Experience
             </p>
-            <h2 className="mt-2 text-md font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
                 Where I've worked
             </h2>
 
             {/* Creating the grid where the experience is going to be displayed */}
             <div className="mt-10 space-y-10">
                 {experience.map((job) => (
-                    <div 
+                    <div
                     key={job.role + job.org}
-                    className="border-1-2 border-foreground/10 pl-6"
+                    className="relative border-l-2 border-accent/30 pl-6"
                     >
-                        <p className="font-mono text-sx uppercase tracking-widest text-muted">
+                        {/* Dusty-rose node dot sitting on the timeline line */}
+                        <span
+                            aria-hidden="true"
+                            className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-accent ring-2 ring-background"
+                        />
+                        <p className="font-mono text-sm uppercase tracking-widest text-accent">
                             {job.period}
                         </p>
-                        <h3 className="mt-1 text-lg font-semibold"> {job.role}</h3>
-                        <p className="text-muted">{job.org} · {job.location}</p>
-                        <ul className="mt-3 list-disc space-y-1 pl-4 text-sm text-muted">
+                        <h3 className="mt-1 text-xl font-semibold">{job.role}</h3>
+                        <p className="text-base text-muted">{job.org} · {job.location}</p>
+                        <ul className="mt-3 list-disc space-y-1.5 pl-4 text-base text-muted">
                             {job.points.map((point, index) => (
                                 <li key={index}>{point}</li>
                             ))}
