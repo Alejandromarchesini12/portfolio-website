@@ -16,6 +16,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Fluid root font-size: scales the whole rem-based design with the viewport.
+   Holds at 16px on laptops (~<=1600px wide), grows to 20px on large monitors,
+   so type, spacing, and max-widths all scale up together on big screens. */
+html {
+  font-size: clamp(1rem, 0.58rem + 0.42vw, 1.25rem);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

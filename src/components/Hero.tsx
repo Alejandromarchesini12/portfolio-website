@@ -11,7 +11,7 @@ export default function Hero() {
     const current = tracks[track];
 
     return (
-        <section id="home" className="relative overflow-hidden">
+        <section id="home" className="relative flex min-h-[calc(100svh_-_4rem)] items-center overflow-hidden">
             {/* Gradient fallback background. Swap for a real image later by adding an <img>/bg here. */}
             <div
                 aria-hidden="true"
@@ -23,7 +23,7 @@ export default function Hero() {
                 className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/0 via-background/0 to-background"
             />
 
-            <div className="mx-auto max-w-3xl px-6 py-32 text-center">
+            <div className="mx-auto w-full max-w-3xl px-6 py-20 text-center">
                 <div className="inline-flex rounded-full border border-foreground/15 p-1 font-mono text-sm">
                     <button
                     onClick={() => setTrack("se")}

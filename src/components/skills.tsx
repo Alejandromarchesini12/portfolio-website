@@ -32,7 +32,7 @@ const skillGroups = [
 
 export default function Skills() {
     return(
-        <section id="skills" className="mx-auto max-w-4xl px-6 py-12 text-center">
+        <section id="skills" className="mx-auto max-w-4xl px-6 py-12 text-center 2xl:py-20">
             <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 Skills
             </p>
