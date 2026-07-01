@@ -86,19 +86,30 @@ export default function Nav() {
                     </a>
                 </div>
 
-                {/* HAMBURGER button: shown only on phones (sm:hidden). Flips the menu open/closed. */}
-                <button
-                    onClick={() => setOpen((prev) => !prev)}
-                    className="rounded-md p-1 text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:hidden"
-                    aria-label="Toggle menu"
-                    aria-expanded={open}
-                >
-                    {open ? (
-                        <X className="h-6 w-6" aria-hidden="true" />
-                    ) : (
-                        <Menu className="h-6 w-6" aria-hidden="true" />
-                    )}
-                </button>
+                {/* Mobile controls: always-visible Resume (one tap) + menu toggle */}
+                <div className="flex items-center gap-2 sm:hidden">
+                    <a
+                        href={resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    >
+                        <FileText className="h-3.5 w-3.5" aria-hidden="true" />
+                        Resume
+                    </a>
+                    <button
+                        onClick={() => setOpen((prev) => !prev)}
+                        className="rounded-md p-1 text-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        aria-label="Toggle menu"
+                        aria-expanded={open}
+                    >
+                        {open ? (
+                            <X className="h-6 w-6" aria-hidden="true" />
+                        ) : (
+                            <Menu className="h-6 w-6" aria-hidden="true" />
+                        )}
+                    </button>
+                </div>
             </nav>
             {/* MOBILE dropdown: only rendered when open is true, only visible on phones. Tapping any link closes the menu via setOpen(false). */}
             {open && (
@@ -114,17 +125,6 @@ export default function Nav() {
                                 {link.label}
                             </a>
                         ))}
-                        {/* Resume option follows the selected track too */}
-                        <a
-                            href={resume}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setOpen(false)}
-                            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-accent px-4 py-2 text-center text-sm font-medium text-white transition hover:opacity-90"
-                        >
-                            <FileText className="h-4 w-4" aria-hidden="true" />
-                            Resume
-                        </a>
                     </div>
                 </div>
             )}
