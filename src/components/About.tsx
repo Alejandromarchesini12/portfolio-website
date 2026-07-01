@@ -1,9 +1,11 @@
 // this file is for the about section of the portfolio website
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 export default function About() {
     return (
         <section id="about" className="mx-auto max-w-4xl px-6 py-12 2xl:py-20">
+            <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 About
             </p>
@@ -61,6 +63,7 @@ export default function About() {
                     President&apos;s Scholarship
                 </li>
             </ul>
+            </Reveal>
         </section>
     );
 }

@@ -30,6 +30,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth scroll-pt-20 antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        {/* If JS is disabled, the observer can't un-hide reveal-wrapped content,
+            so force it all visible. */}
+        <noscript>
+          <style>{`.reveal { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <TrackProvider>
           <Nav />
           {children}

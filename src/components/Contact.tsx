@@ -3,10 +3,12 @@
 
 import { GithubIcon, LinkedinIcon } from "./icons";
 import CopyEmail from "./CopyEmail";
+import Reveal from "./Reveal";
 
 export default function Contact() {
     return (
     <section id="contact" className="mx-auto max-w-3xl px-6 py-20 text-center 2xl:py-42">
+        <Reveal>
         <p className="font-mono text-sm uppercase tracking-widest text-accent">
             Contact
         </p>
@@ -41,6 +43,7 @@ export default function Contact() {
             <GithubIcon className="h-5 w-5" />
         </a>
         </div>
+        </Reveal>
     </section>
     );
 }

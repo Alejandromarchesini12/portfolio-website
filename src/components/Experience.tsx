@@ -1,4 +1,6 @@
 //this file is to display the experience section of the portfolio website
+import Reveal from "./Reveal";
+
 const experience = [
     {
         role: "Data Scientist",
@@ -35,6 +37,7 @@ const experience = [
 export default function Experience() {
     return(
         <section id="experience" className="mx-auto max-w-3xl px-6 py-12 2xl:py-20">
+            <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 Experience
             </p>
@@ -67,6 +70,7 @@ export default function Experience() {
                     </div>
                 ))}
             </div>
+            </Reveal>
         </section>
     );
 }

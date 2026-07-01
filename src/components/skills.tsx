@@ -1,4 +1,6 @@
 // this file is for the my skills section for the portfolio
+import Reveal from "./Reveal";
+
 const skillGroups = [
     {
         name: "Programming Languages",
@@ -33,6 +35,7 @@ const skillGroups = [
 export default function Skills() {
     return(
         <section id="skills" className="mx-auto max-w-4xl px-6 py-12 text-center 2xl:py-20">
+            <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 Skills
             </p>
@@ -67,6 +70,7 @@ export default function Skills() {
                     );
                 })}
             </div>
+            </Reveal>
         </section>
     );
 }

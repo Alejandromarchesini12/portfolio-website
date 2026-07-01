@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media — host videos externally (YouTube/Loom/Vimeo), don't commit
+# (GitHub rejects files > 100MB; videos bloat the repo and Vercel deploys)
+*.mov
+*.MOV
+*.mp4
+*.MP4

@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { projects } from "@/data/projects";
 import { useState } from "react";
+import Reveal from "./Reveal";
 
 const filters = ["All", "Web", "Data & ML", "Mobile", "Systems"];
 
@@ -16,10 +17,11 @@ export default function Projects() {
 
     return (
         <section id="projects" className="mx-auto max-w-5xl px-6 py-12 2xl:py-20">
+            <Reveal>
             <p className="font-mono text-sm uppercase tracking-widest text-accent">
                 Projects
             </p>
-            <h2 className="mt-2 text-md font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
                 Things I've built
             </h2>
             {/* Creating the filter buttons */}
@@ -38,12 +40,13 @@ export default function Projects() {
                     </button>
                 ))}
             </div>
+            </Reveal>
             {/* Creating the grid where the projects are going to be displayed */}
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
-                {visibleProjects.map((project) => (
+                {visibleProjects.map((project, index) => (
+                    <Reveal key={project.title} className="h-full" delayMs={Math.min(index, 5) * 70}>
                     <article
-                    key={project.title}
-                    className="group relative flex flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
                     >
                         {project.demo && (
                             <a
@@ -108,6 +111,7 @@ export default function Projects() {
                             </div>
                         </div>
                     </article>
+                    </Reveal>
                 ))}
             </div>
         </section>
