@@ -46,7 +46,7 @@ export default function Projects() {
                 {visibleProjects.map((project, index) => (
                     <Reveal key={project.title} className="h-full" delayMs={Math.min(index, 5) * 70}>
                     <article
-                    className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] transition duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/10 focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-background"
                     >
                         {project.demo && (
                             <a
@@ -84,7 +84,7 @@ export default function Projects() {
                         {/* Displaying the project title */}
                         <div className="flex flex-1 flex-col p-6">
                             <h3 className="text-lg font-semibold transition group-hover:text-accent">
-                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0">
+                                <a href={project.github} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0 focus:outline-none">
                                     {project.title}
                                 </a>
                             </h3>

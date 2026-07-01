@@ -27,7 +27,7 @@ export default function Hero() {
                 <div className="inline-flex rounded-full border border-foreground/15 p-1 font-mono text-sm">
                     <button
                     onClick={() => setTrack("se")}
-                    className={`rounded-full px-4 py-1.5 transition ${
+                    className={`rounded-full px-4 py-1.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         track === "se"
                         ? "bg-accent text-white"
                         : "text-muted hover:text-foreground"
@@ -37,7 +37,7 @@ export default function Hero() {
                     </button>
                     <button
                     onClick={() => setTrack("ds")}
-                    className={`rounded-full px-4 py-1.5 transition ${
+                    className={`rounded-full px-4 py-1.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         track === "ds"
                         ? "bg-accent text-white"
                         : "text-muted hover:text-foreground"

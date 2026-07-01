@@ -64,7 +64,7 @@ export default function Nav() {
                                 key={link.href}
                                 href={link.href}
                                 aria-current={isActive ? "true" : undefined}
-                                className={`relative text-sm transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:rounded-full after:bg-accent after:transition-transform after:duration-300 hover:text-foreground hover:after:scale-x-100 focus-visible:outline-none focus-visible:text-foreground ${
+                                className={`relative text-sm transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:origin-left after:rounded-full after:bg-accent after:transition-transform after:duration-300 hover:text-foreground hover:after:scale-x-100 focus-visible:outline-none focus-visible:text-foreground focus-visible:after:scale-x-100 ${
                                     isActive
                                         ? "text-foreground after:scale-x-100"
                                         : "text-muted after:scale-x-0"
@@ -109,7 +109,7 @@ export default function Nav() {
                                 key={link.href}
                                 href={link.href}
                                 onClick={() => setOpen(false)}
-                                className="py-2 text-sm text-muted transition hover:text-foreground"
+                                className="rounded py-2 text-sm text-muted transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                             >
                                 {link.label}
                             </a>

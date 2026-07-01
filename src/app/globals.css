@@ -4,7 +4,7 @@
   --background: #f0e9dd; /* warm beige/cream */
   --foreground: #2b2620; /* espresso */
   --muted: #5f574a;      /* deep taupe */
-  --accent: #9d5560;     /* dusty rose (deeper) */
+  --accent: #8f4c57;     /* dusty rose (AA-compliant on background) */
 }
 
 @theme inline {
