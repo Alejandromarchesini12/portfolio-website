@@ -46,7 +46,7 @@ export default function Nav() {
     return (
         /* Look for the nav bar here */
         <header className="sticky top-0 z-50 border-b border-foreground/10 bg-background/80 backdrop-blur">
-            <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+            <nav className="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
                 {/* Logo / initials, links back to the top of the page */}
                 <a
                     href="#home"
@@ -55,8 +55,8 @@ export default function Nav() {
                 >
                     <span className="font-normal text-muted">Alejandro</span> Marchesini
                 </a>
-                {/* Loop to display all the options for the navigation bar */}
-                <div className="hidden items-center gap-7 sm:flex">
+                {/* Centered nav links */}
+                <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 sm:flex">
                     {links.map((link) => {
                         const isActive = active === link.href.slice(1);
                         return (
@@ -74,17 +74,17 @@ export default function Nav() {
                             </a>
                         );
                     })}
-                    {/* Always-visible resume button, tied to the Hero's track toggle */}
-                    <a
-                        href={resume}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                    >
-                        <FileText className="h-4 w-4" aria-hidden="true" />
-                        Resume
-                    </a>
                 </div>
+                {/* Always-visible resume button (right), tied to the Hero's track toggle */}
+                <a
+                    href={resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden items-center gap-2 rounded-full bg-accent px-4 py-2 text-sm font-medium text-on-accent transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:inline-flex"
+                >
+                    <FileText className="h-4 w-4" aria-hidden="true" />
+                    Resume
+                </a>
 
                 {/* Mobile controls: always-visible Resume (one tap) + menu toggle */}
                 <div className="flex items-center gap-2 sm:hidden">
@@ -92,7 +92,7 @@ export default function Nav() {
                         href={resume}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1.5 text-xs font-medium text-on-accent transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                     >
                         <FileText className="h-3.5 w-3.5" aria-hidden="true" />
                         Resume

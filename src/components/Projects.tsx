@@ -32,7 +32,7 @@ export default function Projects() {
                     onClick={() => setActiveFilter(filter)}
                     className={`rounded-full px-4 py-1.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         activeFilter === filter
-                        ? "bg-accent text-white"
+                        ? "bg-accent text-on-accent"
                         : "border border-foreground/15 text-muted hover:border-foreground/40 hover:text-foreground"
                     }`}
                     >
@@ -53,7 +53,7 @@ export default function Projects() {
                             href={project.demo}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="absolute right-3 top-3 z-10 rounded-full border border-foreground/15 bg-background/80 px-3 py-1.5 font-mono text-xs backdrop-blur transition hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                            className="absolute right-3 top-3 z-10 rounded-full border border-foreground/15 bg-background/80 px-3 py-1.5 font-mono text-xs backdrop-blur transition hover:border-accent hover:bg-accent hover:text-on-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                             >
                                 Demo →
                             </a>

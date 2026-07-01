@@ -11,13 +11,42 @@ export default function CopyEmail() {
     const [copied, setCopied] = useState(false);
 
     async function handleCopy() {
+        let ok = false;
+
+        // Preferred: async Clipboard API (requires a secure context — HTTPS or localhost)
         try {
-            await navigator.clipboard.writeText(EMAIL);
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(EMAIL);
+                ok = true;
+            }
+        } catch {
+            // fall through to the legacy fallback
+        }
+
+        // Fallback for insecure contexts (e.g. http:// LAN preview) and older browsers
+        if (!ok) {
+            try {
+                const ta = document.createElement("textarea");
+                ta.value = EMAIL;
+                ta.readOnly = true;
+                ta.style.position = "fixed";
+                ta.style.top = "0";
+                ta.style.left = "0";
+                ta.style.opacity = "0";
+                document.body.appendChild(ta);
+                ta.focus();
+                ta.select();
+                ta.setSelectionRange(0, ta.value.length);
+                ok = document.execCommand("copy");
+                document.body.removeChild(ta);
+            } catch {
+                ok = false;
+            }
+        }
+
+        if (ok) {
             setCopied(true);
             window.setTimeout(() => setCopied(false), 2000);
-        } catch {
-            // Clipboard API can be unavailable (e.g. insecure context).
-            // The visible address and the mailto button still work.
         }
     }
 
@@ -37,7 +66,7 @@ export default function CopyEmail() {
             <div className="flex flex-wrap items-center justify-center gap-3">
                 <a
                     href={`mailto:${EMAIL}`}
-                    className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                    className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-on-accent shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
                     <Mail className="h-4 w-4" aria-hidden="true" />
                     Email me

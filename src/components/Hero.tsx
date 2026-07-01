@@ -12,24 +12,13 @@ export default function Hero() {
 
     return (
         <section id="home" className="relative flex min-h-[calc(100svh_-_4rem)] items-center overflow-hidden">
-            {/* Gradient fallback background. Swap for a real image later by adding an <img>/bg here. */}
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,rgba(157,85,96,0.16),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(157,85,96,0.06),transparent_50%)]"
-            />
-            {/* Subtle scrim so text stays readable over any future image */}
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-background/0 via-background/0 to-background"
-            />
-
             <div className="mx-auto w-full max-w-3xl px-6 py-20 text-center">
                 <div className="inline-flex rounded-full border border-foreground/15 p-1 font-mono text-sm">
                     <button
                     onClick={() => setTrack("se")}
                     className={`rounded-full px-4 py-1.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         track === "se"
-                        ? "bg-accent text-white"
+                        ? "bg-accent text-on-accent"
                         : "text-muted hover:text-foreground"
                     }`}
                     >
@@ -39,7 +28,7 @@ export default function Hero() {
                     onClick={() => setTrack("ds")}
                     className={`rounded-full px-4 py-1.5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
                         track === "ds"
-                        ? "bg-accent text-white"
+                        ? "bg-accent text-on-accent"
                         : "text-muted hover:text-foreground"
                     }`}
                     >
@@ -59,7 +48,7 @@ export default function Hero() {
                     <a href={current.resume}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+                    className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-on-accent shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background">
                         <FileText className="h-4 w-4" aria-hidden="true" />
                         View Resume
                     </a>

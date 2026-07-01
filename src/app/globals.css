@@ -5,6 +5,7 @@
   --foreground: #2b2620; /* espresso */
   --muted: #5f574a;      /* deep taupe */
   --accent: #8f4c57;     /* dusty rose (AA-compliant on background) */
+  --on-accent: #ffffff;  /* text/icon color on top of accent fills */
 }
 
 @theme inline {
@@ -12,8 +13,19 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode: override the design tokens under .dark on <html>.
+   Light mode is completely untouched. */
+.dark {
+  --background: #17141a; /* dark plum-charcoal */
+  --foreground: #ece7e3; /* warm off-white */
+  --muted: #a89f96;      /* warm gray */
+  --accent: #cf929b;     /* lighter dusty rose, readable on dark */
+  --on-accent: #201a1d;  /* dark text on the lighter accent fills */
 }
 
 /* Fluid root font-size: scales the whole rem-based design with the viewport.
