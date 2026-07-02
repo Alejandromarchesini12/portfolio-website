@@ -24,7 +24,7 @@ const skillGroups = [
     },
     {
         name: "Soft Skills",
-        items: ["Agile / Scrum", "Team Leadership", "Communication", "Mentoring", "Problem Solving", "Adaptability"],
+        items: ["Team Leadership", "Agile & Scrum", "Communication", "Time Management & Prioritization", "Adaptability", "Mentoring & Coaching"],
     },
     {
         name: "Languages",

@@ -8,8 +8,8 @@ const experience = [
         location: "La Mirada, CA",
         period: "Sep 2025 – May 2026",
         points: [
-        "Built a YouTube analytics pipeline with Google APIs and BigQuery; diagnosed credential blockers and pivoted to a reliable manual extraction workflow.",
-        "Analyzed multi-year video performance and audience data, then delivered a strategic playbook with 7+ data-driven growth hypotheses.",
+        "I set out to automate a YouTube analytics pipeline with Google's APIs and BigQuery — and when credential issues blocked that path, I found a manual workflow that got us the same data reliably.",
+        "From there I dug into years of video and audience data and turned what I found into a playbook of growth ideas the marketing team could actually act on.",
         ],
     },
     {
@@ -18,8 +18,8 @@ const experience = [
         location: "La Mirada, CA",
         period: "Jun 2025 – Aug 2025",
         points: [
-        "Prototyped LaTeX, MathJAX, and Overleaf tooling for mathematical content under the Endowed Chair of Computer Science.",
-        "Led weekly scrum-style updates and built 6+ LaTeX documents over 45 hours, gaining strong proficiency from scratch.",
+        "I worked directly with the Endowed Chair of Computer Science, prototyping better ways to present math content with LaTeX, MathJax, and Overleaf.",
+        "I'd never touched LaTeX before this — by the end I was building full documents from scratch and walking my professor through them in weekly check-ins.",
         ],
     },
     {
@@ -28,8 +28,8 @@ const experience = [
         location: "La Mirada, CA",
         period: "Jan 2024 – May 2026",
         points: [
-        "Designed individualized lessons for 15+ students across age groups, improving technique and confidence.",
-        "Maintained a zero-incident safety record across 150+ hours of instruction.",
+        "I've taught swimming to everyone from nervous kids to adults, building each student a plan that fits how they learn.",
+        "It's also where I learned to explain hard things simply — a skill I use constantly when talking through technical work.",
         ],
     },
     ];
