@@ -12,12 +12,12 @@ export const tracks: Record<
         label: "Software Engineer",
         tagline:
             "I build full-stack web and mobile apps with React, TypeScript, and a focus on clean, accessible UI.",
-        resume: "/Alejandro-Marchesini-Resume-SE.pdf",
+        resume: "/Alejandro-Marchesini-Resume-SE-07_01.pdf",
     },
     ds: {
         label: "Data Scientist / Data Analyst",
         tagline:
             "I turn data into decisions — ML pipelines, feature engineering, and analysis that teams can act on.",
-        resume: "/Alejandro-Marchesini-Resume-DS.pdf",
+        resume: "/Alejandro-Marchesini-Resume-DS-07_01.pdf",
     },
 };
