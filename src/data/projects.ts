@@ -55,7 +55,7 @@ export const projects: Project[] = [
         description: "Python tool for visualizing and comparing CPU scheduling algorithms, illustrating how different strategies affect process timing and throughput.",
         tech: ["Python", "Linux"],
         github: "https://github.com/matt-bowlby/thread_scheduling_simulator",
-        // image: "/projects/thread-scheduling.png", // ~16:9 screenshot — drop file here, then uncomment
+        image: "/thread-scheduling.png", // ~16:9 screenshot — drop file here, then uncomment
     }, 
     {
         title: "The Culebrita (Snake) Game", 
