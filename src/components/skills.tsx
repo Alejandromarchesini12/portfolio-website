@@ -20,11 +20,15 @@ const skillGroups = [
     },
     {
         name: "Tools",
-        items: ["Git & GitHub", "Vite", "Expo", "Jupyter", "VS Code", "Overleaf"],
+        items: ["Git & GitHub", "Vite", "Expo", "Jupyter", "VS Code", "Overleaf", "macOS", "Windows", "Autotask", "Datto RMM", "IT Glue", "Addigy"],
+    },
+    {
+        name: "IT & Systems",
+        items: ["macOS", "Windows", "Autotask", "Datto RMM", "IT Glue", "Addigy"],
     },
     {
         name: "Soft Skills",
-        items: ["Team Leadership", "Agile & Scrum", "Communication", "Time Management & Prioritization", "Adaptability", "Mentoring & Coaching"],
+        items: ["Team Leadership", "Agile & Scrum", "Communication", "Time Management & Prioritization", "Adaptability", "Mentoring & Coaching", "Technical Support"],
     },
     {
         name: "Languages",
