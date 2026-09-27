@@ -18,6 +18,7 @@ const experience: Job[] = [
         role: "Tier 1 IT Support Technician",
         org: "Creative Resources Technology Group",
         location: "Tustin, CA",
+        logo: "/logos/crtechgroup_logo.jpg",
         period: "Sep 2026 – Present",
         url: "https://creativeresources.net",
         points: [
@@ -29,6 +30,7 @@ const experience: Job[] = [
         role: "Student Intern",
         org: "Creative Resources Technology Group",
         location: "Tustin, CA",
+        logo: "/logos/crtechgroup_logo.jpg",
         period: "Aug 2026 – Sep 2026",
         url: "https://creativeresources.net",
         points: [
@@ -40,6 +42,7 @@ const experience: Job[] = [
         role: "Data Scientist",
         org: "Crowell+ Digital Marketing Group",
         location: "La Mirada, CA",
+        logo: "/logos/crowell_plus_logo.jpg",
         period: "Sep 2025 – May 2026",
         points: [
         "I set out to automate a YouTube analytics pipeline with Google's APIs and BigQuery — and when credential issues blocked that path, I found a manual workflow that got us the same data reliably.",
@@ -50,6 +53,7 @@ const experience: Job[] = [
         role: "Math & Computer Science Intern",
         org: "Biola University",
         location: "La Mirada, CA",
+        logo: "/logos/biola_university_2.jpg",
         period: "Jun 2025 – Aug 2025",
         points: [
         "I worked directly with the Endowed Chair of Computer Science, prototyping better ways to present math content with LaTeX, MathJax, and Overleaf.",
@@ -60,6 +64,7 @@ const experience: Job[] = [
         role: "Swim Instructor",
         org: "Private & Group Lessons",
         location: "La Mirada, CA",
+        logo: "/logos/biola_university_2.jpg",
         period: "Jan 2024 – May 2026",
         points: [
         "I've taught swimming to everyone from nervous kids to adults, building each student a plan that fits how they learn.",
